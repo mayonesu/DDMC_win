@@ -21,6 +21,7 @@ MacやLinuxでは正しく動作しない部分がありますのでご注意く
 
 ## Install
 RenpySDKのプロジェクトフォルダにコピーしてください。
+SDKのバージョンは6.99.12.4を使用してください。
 
 ## Author
 堕天使マヨネーズ Twitter(https://twitter.com/horizonmayone)
