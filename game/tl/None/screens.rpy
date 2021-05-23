@@ -367,6 +367,18 @@ translate None screen:
                             textbutton _("Change player name"):
                                 action [SetVariable("player", ""), Show(screen="change_name", message="Please enter your name you want to change.", ok_action=Function(FinishChangeName))]
                                 style "navigation_button"
+                    if main_menu:
+                        vbox:
+                            label _("")
+                            textbutton _("Volume Setting"):
+                                action Hide("preferences"),ShowMenu('sound_volume_main')
+                                style "navigation_button"
+
+                        vbox:
+                            label _("")
+                            textbutton _("Text Setting"):
+                                action Hide("preferences"),ShowMenu('text_setting_main')
+                                style "navigation_button"
 
                 null height (4 * gui.pref_spacing)
 
@@ -538,7 +550,7 @@ translate None screen:
 
 
                     textbutton _("Settings") action ShowMenu('preferences')
-                textbutton _("Volume Settng") action ShowMenu('sound_volume_main')
+                textbutton _("Volume Setting") action ShowMenu('sound_volume_main')
                 textbutton _("Text Setting") action ShowMenu('text_setting_main')
 
 translate None screen:
@@ -1886,10 +1898,15 @@ init -501 screen sound_volume_main():
     hbox:
         xpos 220 yalign 0.8
         vbox:
-            xalign 0.25
-            textbutton _("Back"):
-                style "return_button"
-                action Hide("sound_volume_main"),Return()
+            if not main_menu:
+                xalign 0.25
+                textbutton _("Back"):
+                    style "return_button"
+                    action Hide("sound_volume_main"),Return()
+            else:
+                textbutton _("Back"):
+                    style "return_button"
+                    action Hide("sound_volume_main"),ShowMenu("preferences")
         vbox:
             xalign 0.5
             textbutton _("Text Setting"):
@@ -1917,13 +1934,19 @@ init -501 screen text_setting_main():
     hbox:
         xpos 220 yalign 0.8
         vbox:
-            xalign 0.25
-            textbutton _("Back"):
-                style "return_button"
-                action Hide("text_setting_main"),Return()
+            if not main_menu:
+                xalign 0.25
+                textbutton _("Back"):
+                    style "return_button"
+                    action Hide("text_setting_main"),Return()
+            else:
+                xalign 0.25
+                textbutton _("Back"):
+                    style "return_button"
+                    action Hide("text_setting_main"),ShowMenu("preferences")
         vbox:
             xalign 0.5
-            textbutton _("Volume Settng"):
+            textbutton _("Volume Setting"):
                 style "return_button"
                 action Hide("text_setting_main"),ShowMenu("sound_volume_main")
         vbox:

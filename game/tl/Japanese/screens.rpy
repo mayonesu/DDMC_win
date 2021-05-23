@@ -443,7 +443,7 @@ translate Japanese strings:
     old "Reset Text Setting"
     new "テキスト設定初期化"
 
-    old "Volume Settng"
+    old "Volume Setting"
     new "音量設定"
 
     old "Text Setting"

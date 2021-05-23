@@ -1,7 +1,4 @@
 translate Japanese strings:
-    old "Volume Setting"
-    new "音量設定"
-
     old "Return to menu"
     new "メニューに戻る"
 
